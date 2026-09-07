@@ -11,7 +11,8 @@ externally. The desktop `/loop` session owns every external action.
 
 | Path | Mode |
 | --- | --- |
-| `docs/seo/submission-queue.md` | exclusive — new file, directory reconnaissance |
+| `docs/seo/submission-research.md` | exclusive — new file, directory reconnaissance and payloads |
+| `docs/seo/submission-queue.md` | **shared** — the /loop session's filing gate; appending candidate entries in its own template only |
 | `docs/seo/citations/` | exclusive — new directory, assistant-answer baselines |
 | `docs/seo/reply-queue.md` | exclusive — new file, drafted replies, never posted |
 | `docs/seo/competitor-watch.md` | exclusive — new file |
@@ -30,6 +31,26 @@ to apply was already applied there in `6436099`, more completely than the versio
 `.crews/messages/handoff-from-session-b.md`. Nothing further is needed and this session left
 it alone. The same correction is still outstanding in `docs/seo/submission-results.md`, which
 is why that file appears above.
+
+## Collision on 2026-09-07, and what it cost
+
+**This session broke its own protocol once.** At 10:18 UTC the `/loop` session created
+`docs/seo/submission-queue.md` as a filing gate — status values, a filed/blocked/skipped
+table, and an entry template. This session claimed that path at 10:20 without re-checking,
+then at 10:30 wrote the file with `cat >` and destroyed all 65 lines of it.
+
+Recovered from `879e580` and restored. The two files were never the same thing: theirs is the
+**gate** that decides what may be filed, this session's is the **research** behind the
+entries. They now live at `submission-queue.md` and `submission-research.md` respectively,
+and the gate links to the research.
+
+The lesson is narrow and worth writing down: claiming a path is not the same as checking it.
+A claim staked at 10:20 says nothing about a file created at 10:18. Read the working tree
+immediately before writing, not only the claims directory — and prefer appending to
+overwriting when another session is live.
+
+This is the second collision between these two sessions today; the first destroyed a correct
+comparison page. Both were caused by acting on a snapshot that had already gone stale.
 
 ## Protocol
 
