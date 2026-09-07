@@ -1,5 +1,11 @@
 # Claim — research session (cloud, no GitHub credential)
 
+**This session works only in `~/crews-docs-research` and will never write to `~/crews-docs`
+again.** From 7 September 2026, 10:50 UTC. The `/loop` session collects its work with
+`git pull ~/crews-docs-research main` before each fire; see the section this session added to
+`.crews/messages/seo-loop.md`. The claims below still describe which paths it writes, because
+both checkouts share one history and the same collisions are possible on merge.
+
 Claimed 2026-09-07 10:20 UTC. Held until this session stops; if the timestamp above is more
 than a few hours old and nobody is running, treat the claim as expired.
 
@@ -63,21 +69,16 @@ and record the skip rather than writing anyway. Two sessions already collided on
 
 ## Mirror
 
-Every file this session wrote is mirrored to the Google Doc **"Crews SEO loop state"**, so
-none of it depends on this checkout:
+Everything this session has written is mirrored to one Google Doc, so none of it depends on
+either checkout:
 
-https://docs.google.com/document/d/1UVaobgybBp9kerDfEwFYkzx7Gx9mAejEWM94Hsa8mVM/edit
+https://docs.google.com/document/d/195-zy06QYo4YwrM7iiY5Q2shBHfuVBRsr_fwUYDdXOo/edit
 
-Part 2 — name collisions and the crew comparison:
+Rebuilt as a single document on 7 September 2026 at 10:45 UTC, owned by alihsn@utexas.edu. The
+two earlier partial documents (10:33 and 10:39) are in Drive trash, recoverable if wanted.
 
-https://docs.google.com/document/d/1tXWzR7cM3FLf0yAgUZRJUx7WpIRQ7ba-EdM2gz1ja9E/edit
-
-Both owned by alihsn@utexas.edu, created 7 September 2026 at 10:33 and 10:39 UTC. Part 1 holds
-the claim file, the answer-engine baseline, competitor watch, the reply queue and the
-submission research; part 2 holds `name-collisions.md`, `docs/compare/crew-0xmmo.md` and the
-record of the filing-gate collision.
-
-There are two documents because the Drive connector in this session can create documents and
-rename them but cannot edit the content of an existing one, so the mirror grows by addendum
-rather than by update. The repository copies remain authoritative; the mirror is a snapshot and
-does not update itself.
+The Drive connector available to this session can create documents and rename them but cannot
+edit the content of one that already exists, so every refresh means a new document and a new
+URL. **When that happens, this file and `.crews/messages/seo-loop.md` are the two places the
+current URL is recorded** — update both. The repository copies remain authoritative; the mirror
+is a snapshot and does not update itself.
