@@ -7,7 +7,7 @@ recorded in the private tracker.
 | Directory | URL | Status | Last checked |
 | --- | --- | --- | --- |
 | punkpeye/awesome-mcp-servers | [PR #13844](https://github.com/punkpeye/awesome-mcp-servers/pull/13844) | **Open** — awaiting maintainer review | 2026-09-07 |
-| mcpservers.org (wong2) | https://mcpservers.org/submit | Submitted 2026-09-06; awaiting approval. No public listing URL confirmed | 2026-09-07 |
+| mcpservers.org (wong2) | [Listing](https://mcpservers.org/servers/trycrews-com-install) | **Listed** — live, docs rendering from this repo | 2026-09-07 |
 | Glama | https://glama.ai/mcp/servers | Not submitted — account required, submission fields not yet seen | 2026-09-06 |
 | Smithery | https://smithery.ai/new | Blocked — see below | 2026-09-06 |
 | mcp.so | — | Skipped: paid placement | 2026-09-06 |
@@ -38,16 +38,21 @@ Still worth a human eye: the entry carries no programming-language marker, where
 neighbouring entry does, and it claims 🍎 🐧 but not 🪟. Both are easy to correct if Windows
 is supported and the language is one you want stated publicly.
 
-### mcpservers.org — submitted
+### mcpservers.org — listed and live
 
 Their README directs contributors to the form rather than accepting PRs. Free submission,
-premium unchecked, no fee paid. Confirmation received on submission; the site estimates
-review within 12 hours and an email on approval, which is their estimate and not a
-guarantee. A listing URL has not been confirmed — an attempt to read it returned HTTP 403 to
-an automated fetch, which does not prove the page is absent.
+premium unchecked, no fee paid.
 
-Submitted fields: name Crews; category Development; repository/website
-https://trycrews.com/install; premium unchecked.
+The listing is live at
+[mcpservers.org/servers/trycrews-com-install](https://mcpservers.org/servers/trycrews-com-install)
+under Development. It originally showed "No documentation available" because its source was
+the website rather than a repository; a request to switch the source to this repository was
+sent on 7 September at 08:20 UTC and the maintainer replied "Updated" at 08:57 UTC. Verified
+in a browser the same day: the page now renders this repository's README in full, and the
+sidebar shows the GitHub repository as its source.
+
+That host returns HTTP 403 to automated fetches, so this had to be checked in a real browser.
+A 403 there is not evidence of absence.
 
 ### Glama — account required
 

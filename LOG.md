@@ -33,6 +33,8 @@ submitted, no message posted, no email sent.
 
 | Time (UTC) | Action |
 | --- | --- |
+| ~09:1x | Browser read (host 403s automated fetches) | https://mcpservers.org/servers/trycrews-com-install | Listing live; README rendering; Befall and Wormhole in Related Servers |
+| ~09:1x | Gmail read-only sweep, last 7 days, directories + GitHub | — | One thread found: contact@mcpservers.org replied "Updated". Nothing sent |
 | ~09:0x | **Write** — pushed commit `a73d749` to branch `add-crews` on the fork, updating PR #13844 | https://github.com/punkpeye/awesome-mcp-servers/pull/13844 | Removed "hosted at" phrasing per the Glama filter rule |
 | ~09:0x | Read via `gh` — CONTRIBUTING and README legend | https://github.com/punkpeye/awesome-mcp-servers/blob/main/CONTRIBUTING.md | `🤖🤖🤖` confirmed as a documented agent opt-in marker |
 | ~09:0x | Read via `gh`, for `docs/compare/befall.md` | https://github.com/esenbora/befall-mcp | 200, README read |
