@@ -3,8 +3,9 @@
 Newest first. Every action that reached outside this repository is recorded here with its
 URL. Read-only fetches are logged as well as writes, so the list can be audited end to end.
 
-**External writes so far: one — a `git push` to this repository's own `main`.** No PR has
-been opened on any other repository, no form submitted, no message posted, no email sent.
+**External writes so far: pushes to this repository's own `main`, and one commit to an
+already-open pull request branch (see below).** No new PR has been opened, no form
+submitted, no message posted, no email sent.
 
 ---
 
@@ -32,5 +33,10 @@ been opened on any other repository, no form submitted, no message posted, no em
 
 | Time (UTC) | Action |
 | --- | --- |
+| ~09:0x | **Write** — pushed commit `a73d749` to branch `add-crews` on the fork, updating PR #13844 | https://github.com/punkpeye/awesome-mcp-servers/pull/13844 | Removed "hosted at" phrasing per the Glama filter rule |
+| ~09:0x | Read via `gh` — CONTRIBUTING and README legend | https://github.com/punkpeye/awesome-mcp-servers/blob/main/CONTRIBUTING.md | `🤖🤖🤖` confirmed as a documented agent opt-in marker |
+| ~09:0x | Read via `gh`, for `docs/compare/befall.md` | https://github.com/esenbora/befall-mcp | 200, README read |
+| ~09:0x | Read via `gh`, for `docs/compare/entire.md` | https://github.com/entireio/cli | 200, README read |
+| ~09:0x | Fetched, for `docs/compare/entire.md` | https://entire.io | 200, used |
 | ~08:4x | `git push origin main` → https://github.com/ali8hsn/crews/commit/8541775 |
 | ~08:3x | Added `docs/how-it-works.md`, `docs/faq.md`, `docs/compare/{README,raft,wormhole,cursor-origin,buzz}.md`, `LOG.md`, `docs/seo/submission-results.md`; expanded `README.md`, `llms.txt`, `CHANGELOG.md` |

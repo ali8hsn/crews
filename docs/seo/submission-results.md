@@ -22,9 +22,21 @@ This became possible only once this documentation repository was made public;
 [their CONTRIBUTING](https://github.com/punkpeye/awesome-mcp-servers/blob/main/CONTRIBUTING.md)
 requires a repository link, and previously there was no public repository to give.
 
-> **Needs a human look:** the emoji in the PR title are that list's markers for server
-> attributes, not decoration. Confirm they match what Crews actually is before a maintainer
-> reads it, and confirm the entry sits in the right category in alphabetical order.
+**Title emoji: verified correct, no change needed.** An earlier note here guessed that the
+`🤖🤖🤖` were attribute markers. They are not — they are documented in
+[CONTRIBUTING](https://github.com/punkpeye/awesome-mcp-servers/blob/main/CONTRIBUTING.md):
+automated agents append `🤖🤖🤖` to the PR title to opt into a fast-tracked merge process.
+The title is right as filed.
+
+**One fix was pushed to the branch** ([a73d749](https://github.com/punkpeye/awesome-mcp-servers/pull/13844/commits)).
+The entry read "...; hosted at trycrews.com with a free solo tier." That list is
+[synced to the Glama directory](https://glama.ai/mcp/servers), and "hosted at" is one of the
+phrasings Glama's spam filter reacts to. It now reads ". Free solo tier; team pricing in
+preview."
+
+Still worth a human eye: the entry carries no programming-language marker, where nearly every
+neighbouring entry does, and it claims 🍎 🐧 but not 🪟. Both are easy to correct if Windows
+is supported and the language is one you want stated publicly.
 
 ### mcpservers.org — submitted
 

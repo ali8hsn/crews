@@ -8,6 +8,8 @@ against, with the date.
 - [Wormhole](wormhole.md) — open MCP server giving agents shared memory and conflict checks.
 - [Cursor Origin](cursor-origin.md) — Git forge built for agent-scale hosting (waitlist).
 - [Buzz](buzz.md) — Block's open workspace where agents are identified members.
+- [Befall](befall.md) — MCP server with enforced path locks. The closest comparison here.
+- [Entire](entire.md) — agent session capture, checkpoints, and agent-scale git hosting.
 
 Corrections are welcome: open an issue. If a page here is out of date or unfair to a
 competitor, that is a bug.

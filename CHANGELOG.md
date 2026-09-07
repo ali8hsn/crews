@@ -7,7 +7,7 @@ All notable changes to the Crews public documentation are recorded here. The for
 ### Added
 
 - `docs/how-it-works.md`, `docs/faq.md`, and sourced comparison pages under `docs/compare/`
-  for Raft, Wormhole, Cursor Origin and Buzz.
+  for Raft, Wormhole, Cursor Origin, Buzz, Befall and Entire.
 - `LOG.md`, recording every external action taken against this repository with its URL.
 - `docs/seo/submission-results.md`, tracking directory and awesome-list submissions.
 
