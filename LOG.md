@@ -11,6 +11,15 @@ submitted, no message posted, no email sent.
 
 ## 2026-09-07
 
+### Writes — PR #1 update
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| ~10:3x | Pushed to branch `registry/docker-and-mcpb`, updating the open PR — root `Dockerfile`, `docs/run/ghcr.md`, deduped Glama/Smithery sections | https://github.com/ali8hsn/crews/pull/1 | pushed, **not merged** |
+
+No image pushed to any registry. Nothing submitted to Glama or Smithery. MCPB bundle not
+uploaded. `docs/seo/submission-queue.md` has nothing marked `ready`, so nothing was filed.
+
 ### Reads — competitor and directory research
 
 | Time (UTC) | Action | URL | Result |
