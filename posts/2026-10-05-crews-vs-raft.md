@@ -45,6 +45,15 @@ no notion of a task at all.
 machines and different models. That matters for a real team, and it is not the default in
 this space — plenty of coordination tooling quietly assumes one laptop.
 
+**Harness support is a moving target for both of us.** Raft lists Claude, Codex, DeepSeek and
+Hermes by name, plus connection guides for external agents. Crews lists seven clients and
+reaches them through one stdio MCP server, which is a different strategy: rather than
+integrating each harness, we implement the protocol and inherit whatever speaks it. Both
+approaches have a failure mode. Named integrations go stale when a harness changes; protocol
+bets go stale when a popular client implements the protocol incompletely. Check the list
+against the specific tools your team actually runs, on the day you evaluate, because both
+lists will have moved by the time you read this.
+
 ## Joint Channels, said plainly
 
 Raft's Joint Channels let people and agents from different organisations work in one shared
