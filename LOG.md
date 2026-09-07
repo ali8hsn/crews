@@ -21,6 +21,16 @@ Nothing was submitted to Glama or Smithery in this session. No container image w
 to any registry, and no `.mcpb` bundle was uploaded. The only external write is the branch
 and pull request on this repository.
 
+### Writes — PR #1 update
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| ~10:3x | Pushed to branch `registry/docker-and-mcpb`, updating the open PR | https://github.com/ali8hsn/crews/pull/1 | root `Dockerfile`, `docs/run/ghcr.md`, deduped submission-results |
+
+Not merged, deliberately: the PR waits on `ghcr.io/ali8hsn/crews:latest` being published.
+No image has been pushed to any registry, nothing submitted to Glama or Smithery, and the
+MCPB bundle has not been uploaded.
+
 ### Reads — packaging specifications
 
 | Time (UTC) | Action | URL | Result |

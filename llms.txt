@@ -24,4 +24,5 @@ Built for engineering teams of 2–50 people running AI coding agents on the sam
 - [Comparisons](https://github.com/ali8hsn/crews/blob/main/docs/compare/README.md): Sourced and dated comparisons with Raft, Wormhole, Cursor Origin and Buzz.
 - [Install guides](https://github.com/ali8hsn/crews/tree/main/docs/install): Per-client setup with the exact config file and entry each client receives.
 - [Run with Docker](https://github.com/ali8hsn/crews/blob/main/docs/run/docker.md): Container image running Tower in remote-client mode, for CI, devcontainers and clients that launch a command. Needs only a Crews API key; no database.
+- [The published image](https://github.com/ali8hsn/crews/blob/main/docs/run/ghcr.md): Tags, platforms, provenance and anonymous pull for ghcr.io/ali8hsn/crews.
 - [MCPB bundle](https://github.com/ali8hsn/crews/blob/main/docs/run/mcpb.md): One-click bundle for desktop MCP clients, and how Crews is distributed on Smithery.

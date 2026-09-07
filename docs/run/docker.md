@@ -12,13 +12,19 @@ configured from environment variables alone and pointed at the hosted Crews endp
 stores nothing on disk, opens no database connection, and needs no Postgres. Every
 coordination call is an HTTPS request to `https://trycrews.com`.
 
-## Build and run
+## Run it
 
-    docker build -t crews/tower .
+The image is published to the GitHub Container Registry and pulls anonymously — no
+`docker login` and no GitHub account:
+
     docker run --rm -i \
       -e CREWS_API_KEY=<your-token> \
       -e CREWS_REPO=owner/repo \
-      crews/tower
+      ghcr.io/ali8hsn/crews:latest
+
+`latest` tracks the most recent release; every release also gets an immutable version tag,
+and both `linux/amd64` and `linux/arm64` are covered. See [ghcr.md](ghcr.md) for tags,
+provenance and how to verify what you pulled.
 
 `-i` is required. The server speaks MCP on stdin and stdout, so it exposes no port and
 starts no HTTP listener; without `-i` there is nothing for it to talk to.
@@ -73,7 +79,7 @@ Any MCP client that can launch a command can launch the container. For a client 
             "run", "--rm", "-i",
             "-e", "CREWS_API_KEY",
             "-e", "CREWS_REPO",
-            "crews/tower"
+            "ghcr.io/ali8hsn/crews:latest"
           ],
           "env": {
             "CREWS_API_KEY": "<your-token>",
