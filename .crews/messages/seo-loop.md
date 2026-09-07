@@ -3,42 +3,62 @@
 Notes from the documentation and directory work that affect the product, not the docs.
 Written 7 September 2026.
 
-## One sprint item, not two: remote transport unblocks both Smithery and Glama
+## Correction: Smithery and Glama have split apart again — two items, not one
 
-**Treat Smithery and Glama as a single piece of work.** They have been tracked separately and
-they should not be — both are gated on the same missing thing, and splitting them is how two
-coding sessions end up doing half of it each.
+**Supersedes the "one sprint item" note that was here earlier today.** That note said both
+listings were gated on the same missing thing and should be tracked together. The artifacts
+it asked for now exist, and with them in place the two blockers are no longer the same
+blocker. Splitting them back apart is the correction.
 
-The item: **ship Streamable HTTP alongside stdio, with a Dockerfile and an MCPB bundle.**
-`tower-mcp` keeps its stdio transport for local clients; the remote endpoint is additive.
+Source for this: PR [#1 on the docs repo](https://github.com/ali8hsn/crews/pull/1) (branch
+`registry/docker-and-mcpb`, commit `4f9776d`), open and unmerged at the time of writing.
+That work reports:
 
-Details behind that below.
+- A root **`Dockerfile`** in the source repository. Built and run locally: the container
+  answers `initialize`, lists 26 tools over stdio, and reaches `https://trycrews.com` — a
+  deliberately wrong key returns `Unauthorized`, which is the hosted endpoint replying.
+- **`dist/crews.mcpb`**, built by `bun run build:mcpb`, verified under Node 22: same
+  `initialize`, same 26 tools, same reply from the hosted endpoint.
 
-### Smithery needs a transport we do not ship
+Both run Tower in remote-client mode, take `CREWS_API_KEY` as their only required variable,
+and use no database.
 
-Smithery's server URL field requires a working public HTTPS MCP endpoint, not a marketing
-site. Per [their publish docs](https://smithery.ai/docs/build/publish) the two accepted
-routes are:
+**One thing in the superseded note was simply wrong.** It said "`tower-mcp` is stdio, there
+is no honest value to paste in that field." A production `/mcp` endpoint exists; it
+authenticates with a Tower bearer token. The problem was never that we lack a remote
+transport.
 
-1. a **Streamable HTTP** URL, with OAuth if the endpoint authenticates, or
-2. a prebuilt **MCPB bundle**.
+### Smithery — blocked on the auth scheme, not the transport
 
-`tower-mcp` is stdio. There is no honest value to paste in that field today, and logging in
-does not change that. This is an engineering decision, not a marketing one:
+Production `/mcp` uses a bearer token, and Smithery requires **OAuth** for authenticated
+remote servers. So the remote route stays shut until that changes. The **MCPB bundle is the
+way in**, not the `/mcp` URL. The bundle has not been uploaded.
 
-- If Streamable HTTP is on the roadmap anyway, Smithery is a reason to sequence it sooner.
-- If not, an MCPB bundle is the cheaper route to the same listing.
-- If neither, Smithery should be marked "won't do" rather than left as a pending task.
+Known snag for whoever publishes it: the manifest deliberately declares no `tools` array,
+because the Smithery registry validates MCPB tool entries as full MCP `Tool` objects and
+returns HTTP 400 once per declared tool
+([smithery-ai/cli#787](https://github.com/smithery-ai/cli/issues/787), open). Clients read
+the live tool list over stdio regardless. Do not "fix" the manifest by adding the array.
 
-Note that Befall, a direct competitor, ships a local daemon plus a stdio proxy and is listed
-on mcpservers.org; and BountyVerdict, in the same Related Servers block, advertises "Remote
-Streamable HTTP" explicitly. The transport is becoming a listing-eligibility feature.
+### Glama — blocked on which repository holds the Dockerfile
 
-### Glama needs an account, then the same listing copy
+Different problem entirely. Glama indexes `ali8hsn/crews`, which is documentation only. The
+Dockerfile lives in the private source repository, so a Glama build from the public repo has
+nothing to build. Two ways out, both operator decisions:
 
-Submission sits behind Add Server, which requires a sign-up. The prepared listing copy is in
-`docs/seo/submission-results.md`. Once an account exists and the endpoint above is real,
-both listings can be filed in one sitting.
+1. publish a prebuilt image to a public registry and point Glama at it, or
+2. put a Dockerfile in the public repo that pulls that published image.
+
+Nothing has been submitted or published, and no image has been pushed to any registry.
+
+Glama also still needs an account before anything can be filed. The prepared listing copy is
+in `docs/seo/submission-results.md`.
+
+### Still true from the superseded note
+
+Transport is becoming a listing-eligibility feature. Befall ships a local daemon plus a stdio
+proxy and is listed on mcpservers.org; BountyVerdict, in the same Related Servers block,
+advertises "Remote Streamable HTTP" explicitly.
 
 ## Docs discrepancy: Windows is neither claimed nor denied
 
@@ -83,10 +103,14 @@ seeing Befall. Worth an answer that is better than "warnings are safer."
 ## Needs a human — cannot be done from here
 
 1. **Accounts on Glama and Smithery.** Both are behind a sign-up, and registering accounts is
-   out of scope for an automated session. Once they exist, and once the remote endpoint above
-   is real, both listings can be filed together using the copy in
-   `docs/seo/submission-results.md`.
-2. **The programming-language marker** for the awesome-list entry — only if there is no
+   out of scope for an automated session.
+2. **The Glama Dockerfile decision** — publish an image and point at it, or add a pulling
+   Dockerfile to the public repo. Until one of those, Glama has nothing to build.
+3. **Whether to pursue OAuth on `/mcp`** or accept that Smithery is an MCPB-bundle listing
+   only.
+4. **Merging or closing [PR #1](https://github.com/ali8hsn/crews/pull/1)**, which carries the
+   Docker and MCPB documentation and is still open.
+5. **The programming-language marker** for the awesome-list entry — only if there is no
    objection to naming the implementation language publicly.
 
 Windows is settled for now: the guides, the FAQ and the README all say untested, which
