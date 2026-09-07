@@ -11,7 +11,7 @@ All notable changes to the Crews public documentation are recorded here. The for
   hosted endpoint, take a Crews API key as their only required setting, and use no
   database. The MCPB bundle is how Crews is distributed on Smithery.
 - Links to both from `README.md` and `llms.txt`.
-- A root `Dockerfile` that re-exports `ghcr.io/ali8hsn/crews:latest`, so registries that
+- A root `Dockerfile` that re-exports `ghcr.io/bmp0404/crews:latest`, so registries that
   index this repository have something to resolve, and `docs/run/ghcr.md` explaining what
   the image is, how it is published, and why that file is here at all.
 

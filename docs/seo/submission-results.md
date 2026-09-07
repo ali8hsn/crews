@@ -68,12 +68,12 @@ the private source repository — so there was nothing to build.
 
 A thin root `Dockerfile` now sits in this repository:
 
-    FROM ghcr.io/ali8hsn/crews:latest
+    FROM ghcr.io/bmp0404/crews:latest
 
 It re-exports the published image rather than pretending to build one. See
 [docs/run/ghcr.md](../run/ghcr.md).
 
-**This does not work yet.** `ghcr.io/ali8hsn/crews:latest` does not resolve — the image has
+**This does not work yet.** `ghcr.io/bmp0404/crews:latest` does not resolve — the image has
 not been published. Until it is, the Dockerfile fails to build and the listing would be worse
 than no listing. Do not submit to Glama before the image is public.
 

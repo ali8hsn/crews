@@ -27,7 +27,7 @@ and pull request on this repository.
 | --- | --- | --- | --- |
 | ~10:3x | Pushed to branch `registry/docker-and-mcpb`, updating the open PR | https://github.com/ali8hsn/crews/pull/1 | root `Dockerfile`, `docs/run/ghcr.md`, deduped submission-results |
 
-Not merged, deliberately: the PR waits on `ghcr.io/ali8hsn/crews:latest` being published.
+Not merged, deliberately: the PR waits on `ghcr.io/bmp0404/crews:latest` being published.
 No image has been pushed to any registry, nothing submitted to Glama or Smithery, and the
 MCPB bundle has not been uploaded.
 

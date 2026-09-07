@@ -56,7 +56,7 @@ also runs as a [container image](docs/run/docker.md) or a one-click
 
 ```sh
 docker run --rm -i -e CREWS_API_KEY=<your-token> -e CREWS_REPO=owner/repo \
-  ghcr.io/ali8hsn/crews:latest
+  ghcr.io/bmp0404/crews:latest
 ```
 
 ## Supported clients

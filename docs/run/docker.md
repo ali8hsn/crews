@@ -20,7 +20,7 @@ The image is published to the GitHub Container Registry and pulls anonymously â€
     docker run --rm -i \
       -e CREWS_API_KEY=<your-token> \
       -e CREWS_REPO=owner/repo \
-      ghcr.io/ali8hsn/crews:latest
+      ghcr.io/bmp0404/crews:latest
 
 `latest` tracks the most recent release; every release also gets an immutable version tag,
 and both `linux/amd64` and `linux/arm64` are covered. See [ghcr.md](ghcr.md) for tags,
@@ -79,7 +79,7 @@ Any MCP client that can launch a command can launch the container. For a client 
             "run", "--rm", "-i",
             "-e", "CREWS_API_KEY",
             "-e", "CREWS_REPO",
-            "ghcr.io/ali8hsn/crews:latest"
+            "ghcr.io/bmp0404/crews:latest"
           ],
           "env": {
             "CREWS_API_KEY": "<your-token>",

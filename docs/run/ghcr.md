@@ -9,7 +9,7 @@ that contains no source code.
 
 ## Status
 
-> **The image is not published yet.** `ghcr.io/ali8hsn/crews:latest` does not resolve at the
+> **The image is not published yet.** `ghcr.io/bmp0404/crews:latest` does not resolve at the
 > time of writing, so the root `Dockerfile` will not build and the `docker pull` below will
 > fail. This page describes the intended shape so the documentation and the registry
 > submissions are ready when the image goes public. Nothing here should be read as a claim
@@ -17,11 +17,11 @@ that contains no source code.
 
 ## Pull and run
 
-    docker pull ghcr.io/ali8hsn/crews:latest
+    docker pull ghcr.io/bmp0404/crews:latest
     docker run --rm -i \
       -e CREWS_API_KEY=<your-token> \
       -e CREWS_REPO=owner/repo \
-      ghcr.io/ali8hsn/crews:latest
+      ghcr.io/bmp0404/crews:latest
 
 `-i` is required — the server speaks MCP over stdin and stdout and opens no port. Every
 option in [docs/run/docker.md](docker.md#configuration) applies unchanged; the image is the
@@ -44,7 +44,7 @@ Silicon and ARM CI runners get a native image rather than an emulated one. Docke
 matching one; `--platform` overrides it.
 
     docker run --rm -i --platform linux/amd64 -e CREWS_API_KEY=<your-token> \
-      ghcr.io/ali8hsn/crews:latest
+      ghcr.io/bmp0404/crews:latest
 
 ## What is inside
 
@@ -60,7 +60,7 @@ the repository when you mount a checkout. See
 
 Each image carries the standard OCI labels pointing back at the commit it was built from:
 
-    docker inspect ghcr.io/ali8hsn/crews:latest \
+    docker inspect ghcr.io/bmp0404/crews:latest \
       --format '{{json .Config.Labels}}' | tr ',' '\n'
 
 `org.opencontainers.image.source` is the source repository, `.revision` the exact commit,
@@ -69,13 +69,13 @@ point rather than something you can check out.
 
 ## Verifying what you pulled
 
-    docker run --rm -i ghcr.io/ali8hsn/crews:latest </dev/null
+    docker run --rm -i ghcr.io/bmp0404/crews:latest </dev/null
 
 With no `CREWS_API_KEY` that exits 1 and tells you to set one, which is the quickest proof
 the image runs at all. For a real check, send it an MCP `initialize`:
 
     printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"0"}}}' \
-      | docker run --rm -i -e CREWS_API_KEY=<your-token> ghcr.io/ali8hsn/crews:latest
+      | docker run --rm -i -e CREWS_API_KEY=<your-token> ghcr.io/bmp0404/crews:latest
 
 A healthy server answers with `"serverInfo":{"name":"crews",…}`.
 
@@ -90,7 +90,7 @@ Dockerfile and have nothing to build, so the listing cannot complete.
 
 The root `Dockerfile` here is the smallest honest answer to that:
 
-    FROM ghcr.io/ali8hsn/crews:latest
+    FROM ghcr.io/bmp0404/crews:latest
 
 It re-exports the published image rather than pretending to build one. A registry that
 builds it gets exactly the image that would have been pulled, and nobody reading this
@@ -110,4 +110,11 @@ a different name — this page and that one line change together, and nothing el
 A GitHub Actions workflow does the publishing on every `v*` tag: it builds both
 architectures, pushes the version tag and `latest`, and then runs the image it just
 published and checks that it answers an MCP `initialize` before the release counts as done.
-Nothing is published from a developer's machine.
+Nothing is published from a developer's machine. Prerelease tags — anything with a hyphen,
+like `v0.1.0-rc.1` — publish under their own tag and leave `latest` on the last final
+release.
+
+One thing that looks like a typo and is not: the image is `ghcr.io/bmp0404/crews` while
+these docs live under `ali8hsn/crews`. A workflow's built-in token can only publish to the
+GHCR namespace of the account that owns the repository it runs in, and the source repository
+is owned by `bmp0404`. The two names refer to the same project.

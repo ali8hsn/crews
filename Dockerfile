@@ -4,4 +4,4 @@
 #
 # Usage, configuration and client wiring: docs/run/docker.md
 # What this image is and how it is published: docs/run/ghcr.md
-FROM ghcr.io/ali8hsn/crews:latest
+FROM ghcr.io/bmp0404/crews:latest
