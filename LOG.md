@@ -11,6 +11,31 @@ submitted, no message posted, no email sent.
 
 ## 2026-09-07
 
+### Writes — Google Drive, research session
+
+Logged late for the first three rows, at 10:52 UTC. They belong here and were previously only
+in a claim file and commit messages; `.crews/messages/external-writes-policy.md` is the
+correction and it is right. Everything below is in Ali's own Drive, owner alihsn@utexas.edu,
+shared with nobody.
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| 10:46 | Moved to Drive trash — superseded partial mirror, part 2 | https://docs.google.com/document/d/1tXWzR7cM3FLf0yAgUZRJUx7WpIRQ7ba-EdM2gz1ja9E/edit | trashed, recoverable |
+| 10:46 | Moved to Drive trash — superseded partial mirror, part 1 | https://docs.google.com/document/d/1UVaobgybBp9kerDfEwFYkzx7Gx9mAejEWM94Hsa8mVM/edit | trashed, recoverable |
+| 10:45 | **Created** Google Doc "Crews SEO loop state" — single consolidated mirror, replaces both partials | https://docs.google.com/document/d/195-zy06QYo4YwrM7iiY5Q2shBHfuVBRsr_fwUYDdXOo/edit | created |
+| 10:39 | **Created** Google Doc "Crews SEO loop state — part 2 (name collisions, crew comparison)" | https://docs.google.com/document/d/1tXWzR7cM3FLf0yAgUZRJUx7WpIRQ7ba-EdM2gz1ja9E/edit | created; since trashed |
+| 10:33 | **Created** Google Doc "Crews SEO loop state" — first mirror | https://docs.google.com/document/d/1UVaobgybBp9kerDfEwFYkzx7Gx9mAejEWM94Hsa8mVM/edit | created; since trashed. Also logged by the /loop session in `607b932` |
+
+No other connector was written to. Gmail was read only, three queries, nothing sent, no draft
+created. Nothing was posted, filed or submitted anywhere.
+
+### Repository move — research session
+
+| Time (UTC) | Action |
+| --- | --- |
+| ~10:50 | This session moved to its own checkout, `~/crews-docs-research`, cloned from `~/crews-docs` at `5351c6a`. It will not write to `~/crews-docs` again. The `/loop` session collects its work with `git pull ~/crews-docs-research main`. |
+
+
 ### Reads — research session (cloud, no GitHub credential, no writes outside this repo)
 
 This session filed nothing. Every row is a read. It could not push, open a PR or submit a
