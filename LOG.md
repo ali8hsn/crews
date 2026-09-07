@@ -11,6 +11,32 @@ submitted, no message posted, no email sent.
 
 ## 2026-09-07
 
+### Reads — research session (cloud, no GitHub credential, no writes outside this repo)
+
+This session filed nothing. Every row is a read. It could not push, open a PR or submit a
+form even had it been asked to.
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| ~11:0x | Read CONTRIBUTING / README | https://github.com/docker/mcp-registry | 200, remote-server rules read |
+| ~11:0x | Read publishing quickstart and server.json schema | https://github.com/modelcontextprotocol/registry | 200, `remotes` schema confirmed |
+| ~11:0x | Read CONTRIBUTING and README legend | https://github.com/punkpeye/awesome-mcp-servers | 200 |
+| ~11:0x | Read PR #13844 state, diff and comments | https://github.com/punkpeye/awesome-mcp-servers/pull/13844 | open, blocked on Glama badge |
+| ~11:0x | Repo metadata survey (12 awesome-lists / registries) | api.github.com | 200; results in `docs/seo/submission-queue.md` |
+| ~10:5x | Fetched submission page | https://glama.ai/mcp/servers | 200, no self-serve fields visible |
+| ~10:5x | Fetched submission page | https://www.pulsemcp.com/submit | robots.txt disallows fetching |
+| ~10:5x | Fetched directory page | https://lobehub.com/mcp | 200, no self-serve route |
+| ~10:4x | HN item and search API (threads, dates, comments) | https://hn.algolia.com/api/v1/ | 200; results in `reply-queue.md`, `competitor-watch.md` |
+| ~10:4x | Fetched | https://mcpagentmail.com/ | 200, used in comparison |
+| ~10:4x | Fetched | https://github.com/madebyaris/agent-orchestration | 200, used in comparison |
+| ~10:3x | Fetched | https://github.com/esenbora/befall-mcp | 200, verified Befall exists |
+| ~10:3x | Fetched | https://entire.io and https://github.com/entireio/cli | 200, used in comparison |
+| ~10:2x | Public web searches for the three baseline questions | — | recorded in `docs/seo/citations/2026-09-07.md` |
+| ~10:2x | Opened Perplexity search URL in browser | https://www.perplexity.ai/search | "Sign up and repeat your request" — no answer obtained, no account created |
+| ~10:2x | Read-only probe of the production MCP endpoint | https://trycrews.com/mcp | **401**. Direct `curl` from both environments refused by egress allowlist; status seen through the page fetcher |
+| ~10:1x | Gmail search, read-only (3 queries) | — | one directory thread, already known; nothing sent |
+
+
 ### Writes — PR #1 update
 
 | Time (UTC) | Action | URL | Result |

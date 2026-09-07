@@ -65,9 +65,12 @@ unknown, so no claim is made about them.
 ### Smithery — blocked on packaging, not on login
 
 Sign-in is required, but the real blocker is downstream: the server URL field must be a
-working public HTTPS MCP endpoint, not a marketing site. The current server uses stdio
-transport. There is no verified Streamable HTTP endpoint (with OAuth if authentication is
-required) and no prebuilt MCPB bundle, so there is no honest value to paste.
+working public HTTPS MCP endpoint, not a marketing site. A Streamable HTTP endpoint does
+exist at `https://trycrews.com/mcp` and returns 401 to an unauthenticated request, so the
+transport was never the problem. It authenticates with a **bearer token**, and Smithery
+requires OAuth for authenticated remote servers. The MCPB bundle is therefore the way in
+rather than the URL; a bundle has been built on branch `registry/docker-and-mcpb` but not
+uploaded.
 
 Documented routes out, per [Smithery's publish docs](https://smithery.ai/docs/build/publish):
 a Streamable HTTP URL, or a local MCPB bundle. Logging in does not resolve this.
