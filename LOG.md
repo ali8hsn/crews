@@ -37,6 +37,16 @@ form even had it been asked to.
 | ~10:1x | Gmail search, read-only (3 queries) | — | one directory thread, already known; nothing sent |
 
 
+### Session coordination — 2026-09-07 ~10:5x
+
+| Action | Target | Result |
+| --- | --- | --- |
+| Messaged the registry session (PR #1) with the Glama connectors task | session "Dockerfile and MCPB bundle for search listing" | delivered; that session is stopped, so it arrives on resume |
+| Wrote `.crews/messages/external-writes-policy.md` for the research session | in-band coordination channel | committed |
+| Cancelled cron `cce5e825`, scheduled `10d94269` (`3,23,43 * * * *`) | this session | the old prompt asked for drafting work the research session now owns |
+| `git pull /Users/ali/crews-docs-research main` | research clone | already up to date, nothing to push |
+| Verified PR #1 image references | https://github.com/ali8hsn/crews/pull/1 | 0 × `ghcr.io/ali8hsn`, 18 × `ghcr.io/bmp0404` — clean |
+
 ### Writes — external, by the research session (logged here after the fact)
 
 | Time (UTC) | Action | URL | Result |
