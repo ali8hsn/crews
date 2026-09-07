@@ -8,8 +8,8 @@ recorded in the private tracker.
 | --- | --- | --- | --- |
 | punkpeye/awesome-mcp-servers | [PR #13844](https://github.com/punkpeye/awesome-mcp-servers/pull/13844) | **Open** — awaiting maintainer review | 2026-09-07 |
 | mcpservers.org (wong2) | [Listing](https://mcpservers.org/servers/trycrews-com-install) | **Listed** — live, docs rendering from this repo | 2026-09-07 |
-| Glama | https://glama.ai/mcp/servers | Not submitted — account required, submission fields not yet seen | 2026-09-06 |
-| Smithery | https://smithery.ai/new | Blocked — see below | 2026-09-06 |
+| Glama | https://glama.ai/mcp/servers | Not submitted — account required, and blocked until the GHCR image is public | 2026-09-07 |
+| Smithery | https://smithery.ai/new | Not submitted — MCPB bundle built and verified, not uploaded | 2026-09-07 |
 | mcp.so | — | Skipped: paid placement | 2026-09-06 |
 | PulseMCP | — | Skipped | 2026-09-06 |
 
@@ -54,23 +54,75 @@ sidebar shows the GitHub repository as its source.
 That host returns HTTP 403 to automated fetches, so this had to be checked in a real browser.
 A 403 there is not evidence of absence.
 
-### Glama — account required
+### Glama — needs the published image
 
-Submission is behind Add Server, which requires an account. Post-login field labels are
-unknown, so no claim is made about them.
+Two things gate this, and only one of them is an account.
+
+**Account.** Submission is behind Add Server, which requires a sign-up. Post-login field
+labels have not been seen, so no claim is made about them. The listing copy above is ready
+to paste.
+
+**The image.** Glama indexes a public GitHub repository and builds what it finds there.
+Pointed at `ali8hsn/crews` it finds documentation — the real multi-stage Dockerfile lives in
+the private source repository — so there was nothing to build.
+
+A thin root `Dockerfile` now sits in this repository:
+
+    FROM ghcr.io/ali8hsn/crews:latest
+
+It re-exports the published image rather than pretending to build one. See
+[docs/run/ghcr.md](../run/ghcr.md).
+
+**This does not work yet.** `ghcr.io/ali8hsn/crews:latest` does not resolve — the image has
+not been published. Until it is, the Dockerfile fails to build and the listing would be worse
+than no listing. Do not submit to Glama before the image is public.
+
+Nothing has been submitted. No image has been pushed to any registry.
 
 > **Filter note:** Glama's spam filter reacts to the phrasings "hosted at" and "at domain".
 > Do not use either in a description.
 
-### Smithery — blocked on packaging, not on login
+### Smithery — blocked on the auth scheme, not the transport
 
-Sign-in is required, but the real blocker is downstream: the server URL field must be a
-working public HTTPS MCP endpoint, not a marketing site. The current server uses stdio
-transport. There is no verified Streamable HTTP endpoint (with OAuth if authentication is
-required) and no prebuilt MCPB bundle, so there is no honest value to paste.
+**Correction to an earlier entry here.** This section previously said "the current server
+uses stdio transport. There is no verified Streamable HTTP endpoint." That was wrong, and it
+was wrong because it was read off the source tree instead of production.
 
-Documented routes out, per [Smithery's publish docs](https://smithery.ai/docs/build/publish):
-a Streamable HTTP URL, or a local MCPB bundle. Logging in does not resolve this.
+Production serves Streamable HTTP at `https://trycrews.com/mcp`. An unauthenticated `GET`
+returns **401, not 404** — the endpoint is live and authenticating. The route is
+`app.all("/mcp", bearerAuth, createMcpHandler())`: a **bearer token**, not OAuth.
+
+*Provenance, since this is the claim that was wrong once already:* the 401 came through a
+page fetcher, because `trycrews.com` was not on the egress allowlist of the session that
+checked it and `curl` was blocked. Anyone re-checking from a session with the domain
+allowlisted should read the `WWW-Authenticate` header and settle it properly.
+
+So the blocker is the auth scheme. Per
+[Smithery's publish docs](https://smithery.ai/docs/build/publish), an authenticating remote
+endpoint must use OAuth; otherwise the server ships as a prebuilt **MCPB bundle**. The
+options are:
+
+1. put an OAuth authorization-server path in front of `/mcp`, keeping bearer for existing
+   clients;
+2. **ship the MCPB bundle** — cheaper, and it does not touch the running service; or
+3. mark Smithery "won't do" rather than leaving it pending.
+
+**The MCPB bundle is the path.** `dist/crews.mcpb`, built by `bun run build:mcpb`, has been
+verified under Node 22: it answers `initialize`, lists 26 tools, and reaches the hosted
+endpoint (a deliberately wrong key returns `Unauthorized`, which is the endpoint replying).
+Documentation: [MCPB bundle](../run/mcpb.md). **It has not been uploaded.**
+
+Known snag for whoever uploads it: the manifest deliberately declares no `tools` array,
+because the Smithery registry validates MCPB tool entries as full MCP `Tool` objects and
+returns HTTP 400 once per declared tool
+([smithery-ai/cli#787](https://github.com/smithery-ai/cli/issues/787), open). Clients read
+the live tool list over stdio regardless. Do not "fix" the manifest by adding the array.
+
+### A rule earned the hard way
+
+When a claim depends on what production does, check production, not the source tree. The
+stdio error above cost a wrong entry in this file and a wrong sprint item in
+`.crews/messages/seo-loop.md`.
 
 ## Standard description
 

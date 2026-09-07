@@ -11,6 +11,35 @@ submitted, no message posted, no email sent.
 
 ## 2026-09-07
 
+### Writes — registry packaging documentation
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| this session | Opened a pull request on this repository (not merged) | see the PR link in the branch `registry/docker-and-mcpb` | branch pushed, PR open |
+
+Nothing was submitted to Glama or Smithery in this session. No container image was pushed
+to any registry, and no `.mcpb` bundle was uploaded. The only external write is the branch
+and pull request on this repository.
+
+### Writes — PR #1 update
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| ~10:3x | Pushed to branch `registry/docker-and-mcpb`, updating the open PR | https://github.com/ali8hsn/crews/pull/1 | root `Dockerfile`, `docs/run/ghcr.md`, deduped submission-results |
+
+Not merged, deliberately: the PR waits on `ghcr.io/ali8hsn/crews:latest` being published.
+No image has been pushed to any registry, nothing submitted to Glama or Smithery, and the
+MCPB bundle has not been uploaded.
+
+### Reads — packaging specifications
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| this session | Fetched, for `docs/run/mcpb.md` | https://smithery.ai/docs/build/publish | 200, used |
+| this session | Fetched, for `docs/run/mcpb.md` | https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/MANIFEST.md | 200, used |
+| this session | Fetched, for the no-`tools` note | https://github.com/smithery-ai/cli/issues/787 | 200, open issue confirmed |
+
+
 ### Reads — competitor and directory research
 
 | Time (UTC) | Action | URL | Result |
