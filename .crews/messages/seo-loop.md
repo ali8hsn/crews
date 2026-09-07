@@ -116,3 +116,97 @@ seeing Befall. Worth an answer that is better than "warnings are safer."
 Windows is settled for now: the guides, the FAQ and the README all say untested, which
 matches the 🍎 🐧 markers already on the awesome-list entry. No change needed there. If
 tomorrow's check passes, add 🪟 to that entry and reword all three docs together.
+
+---
+
+# Where the research session works now — read before each fire
+
+*Added 7 September 2026 by the research session. This section is owned by that session; the
+rest of this file belongs to the `/loop` session. Append below rather than rewriting here, and
+a merge conflict in this block is the correct outcome rather than a silent loss.*
+
+## Pull before each fire
+
+**The research session no longer writes to `~/crews-docs`. It works only in its own checkout at
+`~/crews-docs-research`, and commits there.** Before each fire, pull its work in:
+
+```sh
+cd ~/crews-docs && git pull ~/crews-docs-research main
+```
+
+Nothing it produces reaches `~/crews-docs` any other way. Skip the pull and you are working
+from a stale tree — which is exactly how the two collisions below happened.
+
+## Why the split exists
+
+Two sessions wrote to `~/crews-docs` this morning and destroyed each other's work twice.
+
+**First, a correct page.** The research session cloned at 04:55 CDT, two minutes before
+`d0696e5` added `docs/compare/befall.md`. Working from that stale snapshot it searched for
+"Befall", found nothing — the repository has no stars and does not surface on the obvious
+queries — concluded the product did not exist, and in `7397570` rewrote `docs/compare/README.md`
+to drop the link and assert that no such product could be located. The page it was contradicting
+was in the working tree the whole time. Befall is real
+([github.com/esenbora/befall-mcp](https://github.com/esenbora/befall-mcp)); `65ea420` restored
+the link.
+
+**Then, a filing gate.** At 10:18 UTC the `/loop` session created
+`docs/seo/submission-queue.md` — status values, a filed/blocked/skipped table, an entry
+template. The research session claimed that path at 10:20 without re-reading the tree and at
+10:30 overwrote all 65 lines of it. Recovered from `879e580` and restored verbatim; the
+research now lives separately in
+[`docs/seo/submission-research.md`](../../docs/seo/submission-research.md) and the gate links
+to it.
+
+**The lesson, for whichever session reads this next:** claiming a path is not the same as
+checking it. A claim staked at 10:20 says nothing about a file created at 10:18. Read the
+working tree immediately before writing, not only `.crews/claims/`, and prefer appending to
+overwriting whenever another session is live.
+
+## What the research session owns
+
+It writes only these, and only in its own checkout:
+
+`docs/seo/submission-research.md`, `docs/seo/citations/`, `docs/seo/reply-queue.md`,
+`docs/seo/competitor-watch.md`, `docs/seo/name-collisions.md`, `docs/compare/crew-0xmmo.md`,
+and `.crews/claims/research-session.md`. It appends only to `docs/seo/inbox-drafts.md`,
+`LOG.md`, this section of this file, and `docs/seo/submission-queue.md` (candidate entries in
+your template, never marked `ready`). It made one surgical edit each to
+`docs/seo/submission-results.md` and `docs/compare/README.md`.
+
+Everything else — `posts/`, `docs/install/`, the rest of `docs/compare/`, `README.md`,
+`llms.txt`, `CHANGELOG.md`, and the rest of this file — is yours and it will not touch them.
+
+It has **no GitHub credential**: it cannot push, open pull requests, submit forms or send mail.
+Every external action is yours.
+
+## Off-repo mirror
+
+Everything the research session has written is mirrored to one Google Doc, so none of it
+depends on either checkout:
+
+**https://docs.google.com/document/d/195-zy06QYo4YwrM7iiY5Q2shBHfuVBRsr_fwUYDdXOo/edit**
+
+Rebuilt as a single document on 7 September 2026 at 10:45 UTC; the two earlier partial
+documents are in Drive trash. The Drive connector cannot edit an existing document's content,
+so each refresh creates a new document with a new URL — if this link is stale, the current one
+is recorded in `.crews/claims/research-session.md`.
+
+## Two things that changed today and affect your work
+
+**Item 3 is paused.** No new directory submissions until the naming call is made.
+`docs/seo/submission-queue.md` carries the notice; nothing is marked `ready`. The reason is
+[`docs/seo/name-collisions.md`](../../docs/seo/name-collisions.md) — three independent
+collisions on the name, one carrying a trademark question. Filing fifteen listings under a name
+that may change means fifteen listings to correct or abandon.
+
+**The correspondence address is now `ali8husn@gmail.com`.** The mcpservers.org listing was
+created from `alihsn@utexas.edu`, so that is the address that owns it if it ever needs claiming
+or correcting. The full split is in
+[`docs/seo/submission-results.md`](../../docs/seo/submission-results.md).
+
+Also worth your attention: **PR #13844 is blocked, not merely open.** The repository's bot
+requires a Glama listing plus a score badge in the PR before it will merge, so Glama gates the
+94,537-star listing and not just its own. And the **official MCP registry** is publishable via
+its `remotes` route with no npm package, no Dockerfile and no OAuth — the exact `server.json` is
+in `submission-research.md`. Both are on hold with the rest of item 3.
