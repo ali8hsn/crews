@@ -21,5 +21,6 @@ Built for engineering teams of 2–50 people running AI coding agents on the sam
 
 - [How Crews works](https://github.com/ali8hsn/crews/blob/main/docs/how-it-works.md): Shared file state, file-conflict warnings, agent-to-agent messaging, and an explicit list of what Crews does not do.
 - [FAQ](https://github.com/ali8hsn/crews/blob/main/docs/faq.md): Supported clients, pricing, token storage, verification, removal.
-- [Comparisons](https://github.com/ali8hsn/crews/blob/main/docs/compare/README.md): Sourced and dated comparisons with Raft, Wormhole, Cursor Origin and Buzz.
+- [Command line reference](https://github.com/ali8hsn/crews/blob/main/docs/cli.md): Every `tower` and `crews` command, their flags, and the full `crews.*` MCP tool surface agents call.
+- [Comparisons](https://github.com/ali8hsn/crews/blob/main/docs/compare/README.md): Sourced and dated comparisons with MCP Agent Mail, Agent Orchestration, Wormhole, Raft, Buzz, Entire and Cursor Origin.
 - [Install guides](https://github.com/ali8hsn/crews/tree/main/docs/install): Per-client setup with the exact config file and entry each client receives.

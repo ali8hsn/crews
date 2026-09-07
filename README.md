@@ -62,6 +62,8 @@ tower doctor
 | Windsurf / Cascade | `crews install windsurf --user` | [docs/install/windsurf.md](docs/install/windsurf.md) |
 | Perplexity | `crews install perplexity` | [docs/install/perplexity.md](docs/install/perplexity.md) |
 
+Any other MCP client works through `crews install generic`, which writes a plain `mcp.json` you point the client at.
+
 Crews is model-agnostic. Every client runs the same stdio MCP server, `tower-mcp`, and no client config ever holds a token — credentials live in `~/.tower/config.json`.
 
 ## Pricing
@@ -73,9 +75,14 @@ Crews is model-agnostic. Every client runs the same stdio MCP server, `tower-mcp
 
 - [How it works](docs/how-it-works.md) — the pieces, and what Crews deliberately does not do.
 - [FAQ](docs/faq.md)
-- [Comparisons](docs/compare/README.md) — [Raft](docs/compare/raft.md),
-  [Wormhole](docs/compare/wormhole.md), [Cursor Origin](docs/compare/cursor-origin.md),
-  [Buzz](docs/compare/buzz.md). Sourced and dated; corrections welcome as issues.
+- [Command line reference](docs/cli.md) — every `tower` and `crews` command, and the full
+  MCP tool surface an agent sees.
+- [Comparisons](docs/compare/README.md) — [MCP Agent Mail](docs/compare/mcp-agent-mail.md),
+  [Agent Orchestration](docs/compare/agent-orchestration.md),
+  [Wormhole](docs/compare/wormhole.md), [Raft](docs/compare/raft.md),
+  [Buzz](docs/compare/buzz.md), [Entire](docs/compare/entire.md),
+  [Cursor Origin](docs/compare/cursor-origin.md). Sourced and dated; corrections welcome as
+  issues.
 - Install guides: [Cursor](docs/install/cursor.md) · [Codex](docs/install/codex.md) ·
   [Claude Code](docs/install/claude-code.md) · [VS Code](docs/install/vscode.md) ·
   [Kiro](docs/install/kiro.md) · [Windsurf](docs/install/windsurf.md) ·
