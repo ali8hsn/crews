@@ -6,4 +6,16 @@ All notable changes to the Crews public documentation are recorded here. The for
 
 ### Added
 
+- `docs/how-it-works.md`, `docs/faq.md`, and sourced comparison pages under `docs/compare/`
+  for Raft, Wormhole, Cursor Origin and Buzz.
+- `LOG.md`, recording every external action taken against this repository with its URL.
+- `docs/seo/submission-results.md`, tracking directory and awesome-list submissions.
+
+### Changed
+
+- Expanded `README.md` with what Crews does, and what it deliberately does not do.
+- Extended `llms.txt` with the new documentation pages.
+
+### Added earlier the same day
+
 - Initial public documentation: README, `llms.txt`, and per-client install guides for Cursor, Codex, Claude Code, VS Code, Kiro, Windsurf and Perplexity, matching what [trycrews.com/install](https://trycrews.com/install) shows today.

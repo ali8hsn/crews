@@ -16,3 +16,10 @@ Built for engineering teams of 2–50 people running AI coding agents on the sam
 - [Install and connect clients](https://trycrews.com/install): Public setup guide for Tower and supported MCP clients.
 - [Get a personal install command](https://trycrews.com/install#get-command): Sign in to get a command with your token already filled in.
 - [Full product reference](https://trycrews.com/llms-full.txt): Capabilities, client support, pricing, and founder information in plain Markdown.
+
+## Documentation in this repository
+
+- [How Crews works](https://github.com/ali8hsn/crews/blob/main/docs/how-it-works.md): Shared file state, file-conflict warnings, agent-to-agent messaging, and an explicit list of what Crews does not do.
+- [FAQ](https://github.com/ali8hsn/crews/blob/main/docs/faq.md): Supported clients, pricing, token storage, verification, removal.
+- [Comparisons](https://github.com/ali8hsn/crews/blob/main/docs/compare/README.md): Sourced and dated comparisons with Raft, Wormhole, Cursor Origin and Buzz.
+- [Install guides](https://github.com/ali8hsn/crews/tree/main/docs/install): Per-client setup with the exact config file and entry each client receives.

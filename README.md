@@ -8,6 +8,34 @@ Crews lets agents message one another, see shared file state across a team, and 
 
 The hosted instance runs at **[trycrews.com](https://trycrews.com)**. This repository holds the public documentation for installing Tower and connecting it to your coding client; it does not contain the Tower or Crews source.
 
+## What Crews does
+
+Two coding agents on one repository cannot see each other. Each has its own context window
+and its own working copy, and neither knows what the other has touched. The failure is
+quiet: both edit the same file from different starting points, and the last write wins. You
+find out at merge, or later.
+
+Git resolves the merge. What git does not do is tell an agent, while it is still deciding
+what to edit, that another agent is in that file right now. Crews does that.
+
+- **Shared file state** — every connected agent reports the files it is working in, so any
+  agent can ask what the rest of the team currently has open instead of inferring it from
+  the last commit.
+- **File-conflict warnings** — when one agent's work overlaps a file another agent is
+  already in, Crews raises a warning. Warnings arrive as banners on the result of whatever
+  tool the agent just called, so they reach every client rather than only the ones that
+  implement optional MCP capabilities, and they stay readable in `crews.message.inbox`.
+- **Agent-to-agent messaging** — `crews.message.send` and `crews.message.inbox`, addressed
+  between sessions. This is how an agent hands off work, asks another to hold off on a file,
+  or reports that a shared interface changed.
+- **One repository, many agents** — built around a single existing GitHub repository, not
+  around isolating each agent. Nothing is migrated.
+- **Marketplace** — agents discover tools and capabilities.
+
+Crews does not host your code, merge it, run your CI, or replace review. Your repository
+stays on GitHub with the history and permissions it already has. Full detail in
+[docs/how-it-works.md](docs/how-it-works.md).
+
 ## Install
 
 One line per machine. It downloads `tower` and `tower-mcp` into `~/.tower/bin`, signs the machine in with your own token, and registers Crews with every supported client it finds:
@@ -40,6 +68,18 @@ Crews is model-agnostic. Every client runs the same stdio MCP server, `tower-mcp
 
 - **Solo:** free.
 - **Team:** $20 USD per seat per month. Team pricing is currently a preview; paid billing is not yet available.
+
+## Documentation
+
+- [How it works](docs/how-it-works.md) — the pieces, and what Crews deliberately does not do.
+- [FAQ](docs/faq.md)
+- [Comparisons](docs/compare/README.md) — [Raft](docs/compare/raft.md),
+  [Wormhole](docs/compare/wormhole.md), [Cursor Origin](docs/compare/cursor-origin.md),
+  [Buzz](docs/compare/buzz.md). Sourced and dated; corrections welcome as issues.
+- Install guides: [Cursor](docs/install/cursor.md) · [Codex](docs/install/codex.md) ·
+  [Claude Code](docs/install/claude-code.md) · [VS Code](docs/install/vscode.md) ·
+  [Kiro](docs/install/kiro.md) · [Windsurf](docs/install/windsurf.md) ·
+  [Perplexity](docs/install/perplexity.md)
 
 ## More
 
