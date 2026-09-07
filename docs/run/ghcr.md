@@ -37,6 +37,48 @@ same one that page describes.
 Pin a version anywhere the run has to be reproducible. `latest` is for a first try and for
 registries that need a stable reference.
 
+## Platforms
+
+The tag is a multi-architecture manifest covering `linux/amd64` and `linux/arm64`, so Apple
+Silicon and ARM CI runners get a native image rather than an emulated one. Docker picks the
+matching one; `--platform` overrides it.
+
+    docker run --rm -i --platform linux/amd64 -e CREWS_API_KEY=<your-token> \
+      ghcr.io/ali8hsn/crews:latest
+
+## What is inside
+
+Two stages. The first compiles Tower's remote client into a single standalone binary; the
+second is Alpine carrying that binary, `git`, and nothing else — no package manager, no
+`node_modules`, no toolchain, no source. It runs as a non-root user.
+
+`git` is there for exactly one thing: the read-only `git remote get-url origin` that names
+the repository when you mount a checkout. See
+[docker.md](docker.md#naming-the-repository).
+
+## Provenance
+
+Each image carries the standard OCI labels pointing back at the commit it was built from:
+
+    docker inspect ghcr.io/ali8hsn/crews:latest \
+      --format '{{json .Config.Labels}}' | tr ',' '\n'
+
+`org.opencontainers.image.source` is the source repository, `.revision` the exact commit,
+`.version` the release. The source repository is private, so the revision is a reference
+point rather than something you can check out.
+
+## Verifying what you pulled
+
+    docker run --rm -i ghcr.io/ali8hsn/crews:latest </dev/null
+
+With no `CREWS_API_KEY` that exits 1 and tells you to set one, which is the quickest proof
+the image runs at all. For a real check, send it an MCP `initialize`:
+
+    printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"0"}}}' \
+      | docker run --rm -i -e CREWS_API_KEY=<your-token> ghcr.io/ali8hsn/crews:latest
+
+A healthy server answers with `"serverInfo":{"name":"crews",…}`.
+
 ## Why a Dockerfile lives in a docs repository
 
 This repository is documentation. The Crews source, and the real multi-stage Dockerfile that
@@ -64,3 +106,8 @@ this repository. If that matters for your use, run the installer instead — see
 From the private source repository, on release. This repository is never the build input;
 its `Dockerfile` is a pointer, not a definition. When the image moves — a different registry,
 a different name — this page and that one line change together, and nothing else does.
+
+A GitHub Actions workflow does the publishing on every `v*` tag: it builds both
+architectures, pushes the version tag and `latest`, and then runs the image it just
+published and checks that it answers an MCP `initialize` before the release counts as done.
+Nothing is published from a developer's machine.
