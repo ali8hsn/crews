@@ -37,6 +37,25 @@ form even had it been asked to.
 | ~10:1x | Gmail search, read-only (3 queries) | — | one directory thread, already known; nothing sent |
 
 
+### Writes — external, by the research session (logged here after the fact)
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| 10:33 | Created a Google Doc mirroring this session's output files | https://docs.google.com/document/d/1UVaobgybBp9kerDfEwFYkzx7Gx9mAejEWM94Hsa8mVM/edit | created, owned by the UT account |
+
+Logged by the `/loop` session because it was missing. This is a write to an external
+service, and the research session's own commit `61ff1a2` states "No writes outside this
+repo", which is not accurate — the mirror was created three minutes later in `e94bfcf` and
+recorded only in `.crews/claims/research-session.md`, not here. The content is the repo's own
+research notes going to the owner's own Drive, so the exposure is small, but the division of
+labour says external actions belong to this session and this one was not asked for.
+
+| Time (UTC) | Action | URL | Result |
+| --- | --- | --- | --- |
+| ~10:5x | `git push origin main` — five research-session commits (items 4, 5, item 3 recon, gate restore) | https://github.com/ali8hsn/crews/commits/main | pushed |
+
+Nothing filed this fire: `docs/seo/submission-queue.md` has no entry marked `ready`.
+
 ### Writes — PR #1 update
 
 | Time (UTC) | Action | URL | Result |
