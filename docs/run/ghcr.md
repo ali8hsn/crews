@@ -84,9 +84,10 @@ A healthy server answers with `"serverInfo":{"name":"crews",…}`.
 This repository is documentation. The Crews source, and the real multi-stage Dockerfile that
 builds the image, live in a private repository.
 
-That creates a problem for registries. Several of them — Glama among them — index a public
-GitHub repository and build what they find there. Pointed at `ali8hsn/crews`, they find no
-Dockerfile and have nothing to build, so the listing cannot complete.
+That creates a problem for registries that build a server before listing it. Glama's own
+check bot puts the bar plainly: the Dockerfile is supplied to Glama, and *"for checks to pass,
+we only need the server to start and respond to introspection requests."* With the source
+private, there was no Dockerfile to supply.
 
 The root `Dockerfile` here is the smallest honest answer to that:
 

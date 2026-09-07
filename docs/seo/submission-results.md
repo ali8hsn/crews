@@ -62,9 +62,12 @@ Two things gate this, and only one of them is an account.
 labels have not been seen, so no claim is made about them. The listing copy above is ready
 to paste.
 
-**The image.** Glama indexes a public GitHub repository and builds what it finds there.
-Pointed at `ali8hsn/crews` it finds documentation — the real multi-stage Dockerfile lives in
-the private source repository — so there was nothing to build.
+**The image.** Glama needs a Dockerfile it can build, and its own bot is explicit about the
+bar: *"you must add Dockerfile directly to Glama. For checks to pass, we only need the server
+to start and respond to introspection requests"*
+([glama-check on PR #13844](https://github.com/punkpeye/awesome-mcp-servers/pull/13844)).
+The real multi-stage Dockerfile lives in the private source repository, so there was nothing
+to give it.
 
 A thin root `Dockerfile` now sits in this repository:
 
@@ -76,6 +79,16 @@ It re-exports the published image rather than pretending to build one. See
 **This does not work yet.** `ghcr.io/bmp0404/crews:latest` does not resolve — the image has
 not been published. Until it is, the Dockerfile fails to build and the listing would be worse
 than no listing. Do not submit to Glama before the image is public.
+
+**This is now on the critical path for more than Glama.** PR #13844 on
+punkpeye/awesome-mcp-servers no longer merges on review alone: the `glama-check` bot requires
+a Glama listing that passes checks, plus a Glama score badge added to the entry. So Glama
+gates the awesome-list entry too, and the awesome-list is the larger prize.
+
+**Second route worth weighing.** The same bot notes: *"If your server already has a hosted
+endpoint, you can also list it under https://glama.ai/mcp/connectors."* Production does serve
+`/mcp`. That route may not need the image at all — it has not been investigated, and it
+should be before anyone waits on a container publish.
 
 Nothing has been submitted. No image has been pushed to any registry.
 
