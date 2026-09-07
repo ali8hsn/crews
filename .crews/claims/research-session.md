@@ -36,3 +36,15 @@ is why that file appears above.
 Read this directory before touching a file. If a path is claimed by another session, skip it
 and record the skip rather than writing anyway. Two sessions already collided on
 `docs/compare/README.md` this morning; that is what this directory exists to prevent.
+
+## Mirror
+
+Every file this session wrote is mirrored to the Google Doc **"Crews SEO loop state"**, so
+none of it depends on this checkout:
+
+https://docs.google.com/document/d/1UVaobgybBp9kerDfEwFYkzx7Gx9mAejEWM94Hsa8mVM/edit
+
+Created 7 September 2026, 10:33 UTC, owned by alihsn@utexas.edu. It carries the claim file,
+the answer-engine baseline, competitor watch, the reply queue and the submission queue in
+full, plus a summary of the five things that need a human. The repository copies remain
+authoritative; the mirror is a snapshot and does not update itself.
