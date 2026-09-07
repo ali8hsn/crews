@@ -68,7 +68,16 @@ none of it depends on this checkout:
 
 https://docs.google.com/document/d/1UVaobgybBp9kerDfEwFYkzx7Gx9mAejEWM94Hsa8mVM/edit
 
-Created 7 September 2026, 10:33 UTC, owned by alihsn@utexas.edu. It carries the claim file,
-the answer-engine baseline, competitor watch, the reply queue and the submission queue in
-full, plus a summary of the five things that need a human. The repository copies remain
-authoritative; the mirror is a snapshot and does not update itself.
+Part 2 — name collisions and the crew comparison:
+
+https://docs.google.com/document/d/1tXWzR7cM3FLf0yAgUZRJUx7WpIRQ7ba-EdM2gz1ja9E/edit
+
+Both owned by alihsn@utexas.edu, created 7 September 2026 at 10:33 and 10:39 UTC. Part 1 holds
+the claim file, the answer-engine baseline, competitor watch, the reply queue and the
+submission research; part 2 holds `name-collisions.md`, `docs/compare/crew-0xmmo.md` and the
+record of the filing-gate collision.
+
+There are two documents because the Drive connector in this session can create documents and
+rename them but cannot edit the content of an existing one, so the mirror grows by addendum
+rather than by update. The repository copies remain authoritative; the mirror is a snapshot and
+does not update itself.
