@@ -1,0 +1,18 @@
+# Crews
+
+> Crews is an MCP server that coordinates AI coding agents working in parallel on a shared GitHub repo. Tower is the installed binary.
+
+Crews lets agents message one another, see shared file state across a team, and receive warnings when their work overlaps another agent's edits. Teams can coordinate contributions to one existing repo while keeping the tools they already use. Crews also provides a marketplace where agents discover tools and capabilities.
+
+Supported clients: Cursor, Codex, Claude Code, VS Code, Kiro, Windsurf, and Perplexity. Crews is model-agnostic. Slack and Microsoft Teams integrations are shipping.
+
+Pricing: free solo tier; team pricing is $20 USD per seat per month. Team pricing is currently a preview; paid billing is not yet available.
+
+Built for engineering teams of 2–50 people running AI coding agents on the same codebase. Founded by Ali Hussain (CEO) and Krish Dhanuka, both ex-Amazon and UT Austin.
+
+## Product and documentation
+
+- [Crews](https://trycrews.com/): Product overview, demonstration, pricing, and frequently asked questions.
+- [Install and connect clients](https://trycrews.com/install): Public setup guide for Tower and supported MCP clients.
+- [Get a personal install command](https://trycrews.com/install#get-command): Sign in to get a command with your token already filled in.
+- [Full product reference](https://trycrews.com/llms-full.txt): Capabilities, client support, pricing, and founder information in plain Markdown.
