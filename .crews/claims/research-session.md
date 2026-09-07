@@ -16,13 +16,16 @@ externally. The desktop `/loop` session owns every external action.
 | `docs/seo/citations/` | exclusive — new directory, assistant-answer baselines |
 | `docs/seo/reply-queue.md` | exclusive — new file, drafted replies, never posted |
 | `docs/seo/competitor-watch.md` | exclusive — new file |
+| `docs/seo/name-collisions.md` | exclusive — new file |
+| `docs/compare/crew-0xmmo.md` | exclusive — new file, written at Ali's request |
+| `docs/compare/README.md` | **surgical** — one link added for the page above |
 | `docs/seo/inbox-drafts.md` | **shared** — appending only, will not rewrite existing sections |
 | `docs/seo/submission-results.md` | **surgical** — one paragraph only, the stale transport claim |
 | `LOG.md` | **shared** — appending new dated rows only |
 
 ## Not claimed, deliberately
 
-`.crews/messages/seo-loop.md`, `posts/`, `docs/compare/`, `docs/install/`, `README.md`,
+`.crews/messages/seo-loop.md`, `posts/`, `docs/install/`, the rest of `docs/compare/`, `README.md`,
 `llms.txt`, `CHANGELOG.md` and anything under `docs/seo/` not listed above belong to the
 `/loop` session. This session will not write them.
 

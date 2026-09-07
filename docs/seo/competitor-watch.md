@@ -21,8 +21,10 @@ even mid-work." His listed use cases open with "shipping on a single checkout wi
 worktrees", then cross-agent code review and supervisor/executor pairings across models.
 
 Two things matter here. The **name** is Crews minus one letter, which compounds a naming
-problem that already includes CrewAI and trycrew.com — see
-[the citation baseline](citations/2026-09-07.md). And the **pitch** is ours: coordination by
+problem that already includes CrewAI and trycrew.com — the evidence for all three is collected
+in [name-collisions.md](name-collisions.md), and a fair technical comparison is in
+[docs/compare/crew-0xmmo.md](../compare/crew-0xmmo.md). Note that crew is not new: its
+repository dates from 29 June 2026 and today's Show HN is its launch, not its start. And the **pitch** is ours: coordination by
 shared context and inter-agent messaging on one checkout, rather than isolation by worktree.
 
 The single comment, from `apnabhidu47`, is a useful piece of market feedback and is not
@@ -47,6 +49,8 @@ email!" Someone is already trying to buy the adjacent thing.
 
 | Product | Mechanism | Source |
 | --- | --- | --- |
+| [crew (0xmmo)](https://news.ycombinator.com/item?id=49595212) | Live context injection between sessions plus agent-to-agent mail. **No file claims, locks or conflict detection.** Machine-local, hooks not MCP. MIT, 21 stars | [compare page](../compare/crew-0xmmo.md) |
+| [Twing](https://news.ycombinator.com/item?id=49478737) | Coordination layer for agents on one repository; detects work duplication and design conflicts early | not yet written |
 | [Befall](https://github.com/esenbora/befall-mcp) | Path-glob locks refused at claim time, TTL auto-release | [compare page](../compare/befall.md) |
 | [MCP Agent Mail](https://mcpagentmail.com/) | Reservations with TTLs, threaded inboxes, optional enforcing pre-commit hook | [compare page](../compare/mcp-agent-mail.md) |
 | [Agent Orchestration](https://github.com/madebyaris/agent-orchestration) | Resource locks, shared memory, turn-based task queue | [compare page](../compare/agent-orchestration.md) |

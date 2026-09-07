@@ -75,6 +75,25 @@ uploaded.
 Documented routes out, per [Smithery's publish docs](https://smithery.ai/docs/build/publish):
 a Streamable HTTP URL, or a local MCPB bundle. Logging in does not resolve this.
 
+## Contact address — which listing is tied to which
+
+**From 7 September 2026, `ali8husn@gmail.com` is the address for all registry and directory
+correspondence.** Use it for every new submission.
+
+Existing listings are split across two addresses, which matters when a maintainer wants to
+verify that a submitter owns what they are submitting, and again whenever a listing has to be
+corrected or claimed later:
+
+| Listing or thread | Address on file |
+| --- | --- |
+| mcpservers.org — the [listing](https://mcpservers.org/servers/trycrews-com-install) and the "Update source" thread of 7 September | `alihsn@utexas.edu` |
+| punkpeye/awesome-mcp-servers [PR #13844](https://github.com/punkpeye/awesome-mcp-servers/pull/13844) | GitHub account `ali8hsn`; no email exchanged |
+| Everything filed from 7 September onward | `ali8husn@gmail.com` |
+
+The mcpservers.org listing is the one to watch: if it ever needs claiming or correcting, the
+address that owns it is the UT one, not the gmail one. Worth either migrating it deliberately
+or simply remembering which key opens which door.
+
 ## Standard description
 
 Use verbatim where a description is requested:

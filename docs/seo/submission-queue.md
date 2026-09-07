@@ -21,6 +21,17 @@ payload to submit — is in [submission-research.md](submission-research.md).
 | `filed` | Submitted. Record the PR or confirmation URL and the date. |
 | `skip` | Rejected. Record why, so it is not rediscovered next week. |
 
+## PAUSED — 7 September 2026
+
+**Item 3 is paused by instruction. File nothing new until the naming decision is made.**
+
+Everything below stays as drafts. No entry may be marked `ready` while this notice stands, and
+the two already filed (mcpservers.org, PR #13844) are unaffected — they are filed, not pending.
+
+The reason is in [name-collisions.md](name-collisions.md): three independent collisions on the
+name, one of which carries a trademark question. Filing fifteen more listings under a name that
+may change would mean fifteen listings to correct or abandon.
+
 ## Ready to file
 
 *(none)*

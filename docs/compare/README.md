@@ -8,6 +8,9 @@ Closest first:
 
 - [Befall](befall.md) — MCP server with path-glob locks refused at claim time. The closest
   comparison here, and the only one that enforces rather than warns.
+- [crew (0xmmo/crew)](crew-0xmmo.md) — live context sharing and agent-to-agent mail between
+  Claude Code, Codex and opencode sessions on one machine. No file-level claims. Nearly our
+  name; see [name-collisions.md](../seo/name-collisions.md).
 - [MCP Agent Mail](mcp-agent-mail.md) — MIT-licensed MCP coordination server with file
   reservations, TTLs and threaded inboxes.
 - [Agent Orchestration](agent-orchestration.md) — MCP server with resource locks, shared
