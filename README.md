@@ -50,6 +50,10 @@ Get a command with your token already filled in at **[trycrews.com/install](http
 tower doctor
 ```
 
+If installing a binary is not an option — CI, a devcontainer, a locked-down machine — Crews
+also runs as a [container image](docs/run/docker.md) or a one-click
+[MCPB bundle](docs/run/mcpb.md). Both need only your API key and no database.
+
 ## Supported clients
 
 | Client | Connect with | Guide |
@@ -80,6 +84,9 @@ Crews is model-agnostic. Every client runs the same stdio MCP server, `tower-mcp
   [Claude Code](docs/install/claude-code.md) · [VS Code](docs/install/vscode.md) ·
   [Kiro](docs/install/kiro.md) · [Windsurf](docs/install/windsurf.md) ·
   [Perplexity](docs/install/perplexity.md)
+- Running without the installer: [Docker](docs/run/docker.md) ·
+  [MCPB bundle](docs/run/mcpb.md) — for CI, devcontainers, and desktop clients that
+  install servers in one click. Both need only a Crews API key.
 
 ## More
 

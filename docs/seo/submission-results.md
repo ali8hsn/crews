@@ -72,6 +72,38 @@ required) and no prebuilt MCPB bundle, so there is no honest value to paste.
 Documented routes out, per [Smithery's publish docs](https://smithery.ai/docs/build/publish):
 a Streamable HTTP URL, or a local MCPB bundle. Logging in does not resolve this.
 
+## Update — 2026-09-07: both packaging blockers now have artifacts
+
+The Glama and Smithery blockers were the same shape: neither lists a server without
+something runnable. Two artifacts now exist in the Crews source repository, both running
+Tower in remote-client mode against the hosted endpoint, both taking `CREWS_API_KEY` as
+their only required variable, and neither needing a database:
+
+- A root `Dockerfile`. Built and run locally: the container answers `initialize` and lists
+  26 tools over stdio, and reaches `https://trycrews.com` (a deliberately wrong key returns
+  `Unauthorized`, which is the hosted endpoint replying).
+- `dist/crews.mcpb`, built by `bun run build:mcpb`. Verified under Node 22: same
+  `initialize`, same 26 tools, same reply from the hosted endpoint.
+
+Public documentation: [Docker](../run/docker.md), [MCPB bundle](../run/mcpb.md).
+
+Two things this does **not** yet settle, both needing an operator decision:
+
+1. **Glama indexes this public repository, which holds documentation only.** The Dockerfile
+   lives in the private source repository, so a Glama build from `ali8hsn/crews` has nothing
+   to build. Closing that means either publishing a prebuilt image to a public registry and
+   pointing Glama at it, or putting a Dockerfile here that pulls that published image.
+   Nothing has been submitted or published; no image has been pushed anywhere.
+2. **Smithery's remote route is still shut.** Production `/mcp` authenticates with a Tower
+   bearer token and Smithery requires OAuth for authenticated remote servers. The MCPB
+   bundle is the way in, not the `/mcp` URL. The bundle has not been uploaded.
+
+Known snag for whoever publishes the bundle: the manifest deliberately declares no `tools`
+array, because the Smithery registry validates MCPB tool entries as full MCP `Tool` objects
+and returns HTTP 400 once per tool declared
+([smithery-ai/cli#787](https://github.com/smithery-ai/cli/issues/787), open). Clients read
+the live tool list over stdio regardless.
+
 ## Standard description
 
 Use verbatim where a description is requested:
