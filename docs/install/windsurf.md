@@ -12,6 +12,11 @@ Get a command with your token already filled in at https://trycrews.com/install#
 Then run `tower doctor`; a healthy setup reports PASS for Config, Server, and User MCP, and
 names the clients Crews registered.
 
+**Platform:** the installer and `tower` are used on macOS and Linux. **Windows is
+untested** — not known to be broken, simply not verified, and the `curl … | sh`
+one-liner above will not run on native Windows as written. Use WSL, or wait until
+this note says otherwise.
+
 
 `tower connect` does not register Windsurf — it only wires up Claude Code, Cursor, Codex
 and Claude Desktop. Install Tower first, which also puts `crews` on your PATH, then

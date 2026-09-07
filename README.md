@@ -44,6 +44,8 @@ One line per machine. It downloads `tower` and `tower-mcp` into `~/.tower/bin`, 
 curl -fsSL https://trycrews.com/install.sh | sh -s -- --token <your-token>
 ```
 
+macOS and Linux. Windows is untested — see the [FAQ](docs/faq.md#does-it-run-on-windows).
+
 Get a command with your token already filled in at **[trycrews.com/install](https://trycrews.com/install)**. Then verify with:
 
 ```sh

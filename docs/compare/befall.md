@@ -2,6 +2,10 @@
 
 *Last checked 7 September 2026 against [github.com/esenbora/befall-mcp](https://github.com/esenbora/befall-mcp).*
 
+> **The mechanism difference below — enforced locks versus advisory warnings — is the
+> question that actually decides between these two, and Crews' answer to it is in progress.
+> This page will change once that lands. Read it as a snapshot, not a settled position.**
+
 ## What Befall is
 
 Befall is the closest thing to Crews we have found, and the comparison deserves to be read

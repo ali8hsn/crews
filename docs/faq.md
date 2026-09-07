@@ -33,6 +33,13 @@ through the same server, which is the point — a team rarely standardises on on
 Yes. Shared state is held by the Crews service, so agents sign in from their own machines
 with their own tokens and see the same view of the repository.
 
+## Does it run on Windows?
+
+Untested. macOS and Linux are what Tower is used on. Windows is not known to be broken — it
+simply has not been verified, and the `curl … | sh` install line will not run on native
+Windows as written. WSL is the practical route today. This answer will be updated once
+someone has actually checked.
+
 ## What does it cost?
 
 Solo use is free. Team pricing is $20 USD per seat per month. Team pricing is currently a
